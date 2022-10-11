@@ -17,4 +17,7 @@ public class Aritmetica {
 	public float getUltimoResultado() {
 		return ultimoResultado;
 	}
+	public float divisionEntera(int dividendo, int divisor) {
+		return dividendo/divisor;
+	}
 }
