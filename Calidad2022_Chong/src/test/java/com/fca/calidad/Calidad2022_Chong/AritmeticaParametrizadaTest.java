@@ -36,8 +36,8 @@ public class AritmeticaParametrizadaTest {
 			{5,5,1},						//Same number
 			{5,2,2.5f},						//Decimal
 			{5,-2,-2.5f},					//Negative decimal
-			//{10,0,Double.POSITIVE_INFINITY},//Infinity
-			//{0,0,Double.NaN}				//Not a number
+			{10,0,Float.POSITIVE_INFINITY},//Infinity
+			{0,0,Float.NaN}				//Not a number
 		});
 	}
 	
