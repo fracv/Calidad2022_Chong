@@ -94,6 +94,8 @@ public class DependencyTest {
 				new Answer<Integer>() {
 					public Integer answer(InvocationOnMock invocation) throws Throwable{
 						int arg = (Integer) invocation.getArguments()[0];
+						System.out.println("Este es el argumento del thenAnswer: "+arg);
+						System.out.println("Este es el argumento del thenAnswer más 2: "+(arg+2));
 						return arg + 10;
 					}
 				}
