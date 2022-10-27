@@ -4,6 +4,6 @@ public interface iAlumnoDAO {
 	public Boolean addAlumno(Alumno a);
 	public Boolean deleteAlumno(Alumno a);
 	public Boolean updateEmail(Alumno a);
-	public Boolean searchAlumno(String id);
+	public Alumno searchAlumno(String id);
 
 }

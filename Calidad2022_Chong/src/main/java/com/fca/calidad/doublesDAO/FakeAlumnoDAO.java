@@ -17,7 +17,7 @@ public class FakeAlumnoDAO implements iAlumnoDAO {
 		return null;
 	}
 
-	public Boolean searchAlumno(String id) {
+	public Alumno searchAlumno(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
