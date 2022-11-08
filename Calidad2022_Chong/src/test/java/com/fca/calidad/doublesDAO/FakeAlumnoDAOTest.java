@@ -158,7 +158,7 @@ public class FakeAlumnoDAOTest {
 		assertThat(emailEsperado,is(emailEjecucion));
 
 
-		//System.out.println("Resultado searchAlumno: " + res);
+		System.out.println("Resultado searchAlumno: " + res);
 	}
 	
 }
