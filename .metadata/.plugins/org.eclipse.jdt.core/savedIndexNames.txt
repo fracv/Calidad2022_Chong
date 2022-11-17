@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\fca\Documents\Admón. de la CS - Francisco Chong\Calidad2022_Chong\.metadata\.plugins\org.eclipse.jdt.core
+63986198.index
+1865797976.index
+1708134586.index
