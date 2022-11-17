@@ -8,6 +8,9 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.time.Duration;
@@ -20,7 +23,8 @@ public class GoogleTest {
   JavascriptExecutor js;
   @Before
   public void setUp() throws Exception {
-    System.setProperty("webdriver.chrome.driver", "");
+	WebDriverManager.chromedriver().setup();
+    //System.setProperty("webdriver.chrome.driver", "");
     driver = new ChromeDriver();
     baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
@@ -28,14 +32,11 @@ public class GoogleTest {
   }
 
   @Test
-  public void testGoogle() throws Exception {
-    driver.get("https://www.google.com/search?q=yucatani6&rlz=1C1VDKB_esMX1026MX1026&oq=yucatani6&aqs=chrome..69i57j0i10i131i433i512j0i10i512l2j5i44.4431j0j4&sourceid=chrome&ie=UTF-8");
-    driver.findElement(By.xpath("//div[@id='rso']/div/div/div/div/div/div/div/div")).click();
+  public void testUntitledTestCase() throws Exception {
+    driver.get("https://www.google.com/search?q=yucatan+i6&rlz=1C1VDKB_esMX1026MX1026&oq=yucatan+i6&aqs=chrome.0.0i131i433i512j0i512l3j0i22i30j0i10i22i30j0i22i30.3984j0j7&sourceid=chrome&ie=UTF-8");
     driver.findElement(By.xpath("//div[@id='rso']/div/div/div/div/div/div/div/div/a/h3")).click();
     driver.get("https://siies.yucatan.gob.mx/yucatani6/");
     assertEquals("Yucatáni6", driver.getTitle());
-    //ERROR: Caught exception [unknown command []]
-    //ERROR: Caught exception [unknown command []]
   }
 
   @After
