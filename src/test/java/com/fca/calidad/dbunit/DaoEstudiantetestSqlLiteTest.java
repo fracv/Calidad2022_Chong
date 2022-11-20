@@ -1,4 +1,4 @@
-package com.fca.calidad.doublesDAO;
+package com.fca.calidad.dbunit;
 
 
 import java.io.File;
@@ -52,7 +52,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 		Connection jdbcConnection;
 		
 		jdbcConnection = DriverManager.getConnection
-				("jdbc:sqlite:C:\\Users\\fca\\Documents\\Admón. de la CS - Francisco Chong\\Calidad2022_Chong\\Calidad2022_Chong\\src\\resources\\Alumnos.db");
+				("jdbc:sqlite:src\\resources\\Alumnos.db");
 		
 		connection = new DatabaseConnection(jdbcConnection);
 		
@@ -121,7 +121,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			fail("Error in insert test: " + e.getMessage());
 		}
 	}
-	/*
+
 	@Test
 	public void testCrearCompararQuery() {
 		Estudiante alumno = new Estudiante ("nombrePruebaCrear","appellidoCrear","email" ,"carrera");
@@ -144,9 +144,9 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			fail("Error in insert ttest: " + e.getMessage());
+			fail("Error in insert test: " + e.getMessage());
 		}
-	}*/
+	}
 	
 	@Test
 	public void testCrearCompararTabla() {
