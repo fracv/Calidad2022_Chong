@@ -18,9 +18,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.fca.calidad.dbunit.DAOEstudianteSQLlite;
-import com.fca.calidad.dbunit.Estudiante;
-
 import static org.hamcrest.MatcherAssert.assertThat; 
 import static org.hamcrest.Matchers.*;
 //import com.fca.calidad.curdMOCK.*;
