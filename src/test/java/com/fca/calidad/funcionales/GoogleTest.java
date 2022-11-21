@@ -41,6 +41,7 @@ public class GoogleTest {
     driver.findElement(By.name("q")).sendKeys("yucatan i6");
     driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
     driver.findElement(By.xpath("//div[@id='rso']/div/div/div/div/div/div/div/div/a/h3")).click();
+    driver.get("https://siies.yucatan.gob.mx/yucatani6/");
     pause(2000);
     assertEquals("Yucatáni6", driver.getTitle());
   }
