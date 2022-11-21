@@ -94,7 +94,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 
 	
 	@Test
-	public void testCrear() {
+	public void testCrearEstudiante() {
 		Estudiante alumno = new Estudiante ("nombrePruebaCrear","appellidoCrear","email" ,"carrera");
 		
 		int id = daoSQLite.createEstudiante(alumno);
@@ -117,6 +117,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			// TODO: handle exception
 			fail("Error in insert test: " + e.getMessage());
 		}
+		System.out.println("Estudiante con ID:"+id+" creado con éxito"+"\n");
 	}
 
 	/*@Test
@@ -216,6 +217,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			// TODO: handle exception
 			fail("Error in insert test: " + e.getMessage());
 		}
+		System.out.println("Estudiante con ID:0 buscado con éxito"+"\n");
 	}
 	
 	@Test
@@ -240,6 +242,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			// TODO: handle exception
 			fail("Error in insert test: " + e.getMessage());
 		}
+		System.out.println("Estudiante con ID:"+alumno.getId()+" actualizado con éxito"+"\n");
 	}
 	
 	@Test
@@ -260,5 +263,6 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			// TODO: handle exception
 			fail("Error in insert test: " + e.getMessage());
 		}
+		System.out.println("Estudiante con ID:"+alumno.getId()+" eliminado con éxito"+"\n");
 	}
 }

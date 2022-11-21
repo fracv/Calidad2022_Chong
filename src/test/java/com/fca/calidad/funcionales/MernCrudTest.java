@@ -55,6 +55,7 @@ public class MernCrudTest {
 		driver.findElement(By.xpath("//i")).click();
 		pause(2000);
 		assertTrue(driver.findElement(By.xpath("//*[text()='Walter White']")).isDisplayed());
+		System.out.println("Usuario agregado con éxito");
 	}
 	  
 	@Test
@@ -62,6 +63,7 @@ public class MernCrudTest {
 		driver.get("https://mern-crud.herokuapp.com/");
 		pause(2000);
 		assertTrue(driver.findElement(By.xpath("//*[text()='Walter White']")).isDisplayed());
+		System.out.println("Usuario encontrado con éxito");
 	}
 	 
 	@Test
@@ -80,6 +82,7 @@ public class MernCrudTest {
 		driver.findElement(By.xpath("//i")).click();
 		pause(2000);
 		assertTrue(driver.findElement(By.xpath("//*[text()='Heisenberg']")).isDisplayed());
+		System.out.println("Usuario editado con éxito");
 	}
 	
 	@Test
@@ -90,6 +93,7 @@ public class MernCrudTest {
 		driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Heisenberg'])[2]/following::button[1]")).click();
 		pause(2000);
 		assertFalse(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Heisenberg[\\s\\S]*$"));
+		System.out.println("Usuario eliminado con éxito");
 	}
 	
 	@After

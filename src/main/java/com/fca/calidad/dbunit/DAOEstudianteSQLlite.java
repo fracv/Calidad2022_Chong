@@ -101,9 +101,6 @@ public class DAOEstudianteSQLlite implements IDAOEstudiante {
 			if (preparedStatement.executeUpdate() >= 1) {
 				result = true;
 			}
-			System.out.println("\n");
-			System.out.println("Estudiante eliminado con exito");
-			System.out.println(">> Return: " + result + "\n");
 			// Close connection with the database
 			conn.close();
 			preparedStatement.close();
@@ -137,9 +134,6 @@ public class DAOEstudianteSQLlite implements IDAOEstudiante {
 			if (preparedStatement.executeUpdate() >= 1) {
 				result = true;
 			}
-			System.out.println("\n");
-			System.out.println("Correo de alumno con ID: " + aux + " actualizado");
-			System.out.println(">> Return: " + result + "\n");
 			// Close connection with the database
 			conn.close();
 			preparedStatement.close();
