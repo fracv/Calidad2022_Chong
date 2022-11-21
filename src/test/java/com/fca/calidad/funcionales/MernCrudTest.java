@@ -51,7 +51,7 @@ public class MernCrudTest {
   @Test
   public void beditarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
-    String name = "";
+    /*String name = "";
     int i = 1;
     int x = 0;
     
@@ -63,9 +63,9 @@ public class MernCrudTest {
     		i++;
     	}
     }
-    while(x != 1000);
+    while(x != 1000);*/
 
-    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/table/tbody/tr["+i+"]/td[5]/button[1]")).click();
+    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button[1]")).click();
 	driver.findElement(By.name("name")).click();
     driver.findElement(By.name("name")).clear();
     driver.findElement(By.name("name")).sendKeys("Heisenberg");
@@ -83,7 +83,7 @@ public class MernCrudTest {
   @Test
   public void celiminarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
-    String name = "";
+    /*String name = "";
     int i = 1;
     int x = 0;
     
@@ -95,9 +95,9 @@ public class MernCrudTest {
     		i++;
     	}
     }
-    while(x != 1000);
+    while(x != 1000);*/
     
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr["+i+"]/td[5]/button[2]")).click();
+    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button[2]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Heisenberg'])[2]/following::button[1]")).click();
     pause(2000);
     assertFalse(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Heisenberg[\\s\\S]*$"));
