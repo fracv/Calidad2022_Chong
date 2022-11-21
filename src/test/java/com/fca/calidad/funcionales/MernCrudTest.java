@@ -28,9 +28,7 @@ public class MernCrudTest {
   @Test
   public void aagregarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
-    pause(300);
     driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
-    pause(500);
     driver.findElement(By.name("name")).click();
     driver.findElement(By.name("name")).clear();
     driver.findElement(By.name("name")).sendKeys("Walter White");
@@ -43,37 +41,62 @@ public class MernCrudTest {
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[1]/following::div[2]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
-    pause(10000);
-    driver.findElement(By.xpath("//i")).click();  //comentar
-    //String mensaje = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/div[4]/div/p")).getText();
-    //assertThat(mensaje, is ("Successfully added!"));
-    assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Walter White[\\s\\S]*$")); //comentar
+    pause(2000);
+    String msg = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/div[4]/div/p")).getAttribute("textContent");
+    assertThat(msg, is("Successfully added!"));
   }
  
   @Test
   public void beditarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr[4]/td[5]/button")).click();
-    pause(3000);
-    driver.findElement(By.name("name")).click();
+    String name = "";
+    int i = 1;
+    int x = 0;
+    
+    do {
+    	name = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/table/tbody/tr["+i+"]/td[1]")).getAttribute("textContent");
+    	if(name.contains("Walter White")) {
+    		x = 1000;
+    	} else {
+    		i++;
+    	}
+    }
+    while(x != 1000);
+
+    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/table/tbody/tr["+i+"]/td[5]/button[1]")).click();
+	driver.findElement(By.name("name")).click();
     driver.findElement(By.name("name")).clear();
     driver.findElement(By.name("name")).sendKeys("Heisenberg");
     driver.findElement(By.name("email")).click();
     driver.findElement(By.name("email")).clear();
     driver.findElement(By.name("email")).sendKeys("heisenberg@meta.com");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
-    driver.findElement(By.xpath("//i")).click();
-    //Warning: assertTextPresent may require manual changes
-    assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Heisenberg[\\s\\S]*$"));
+    pause(2000);
+    String msg = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/div[4]/div/p")).getAttribute("textContent");
+    assertThat(msg, is("Successfully updated!"));
   }
   
   @Test
-  public void ctestUntitledTestCase() throws Exception {
+  public void celiminarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr[5]/td[5]/button[2]")).click();
+    String name = "";
+    int i = 1;
+    int x = 0;
+    
+    do {
+    	name = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/table/tbody/tr["+i+"]/td[1]")).getAttribute("textContent");
+    	if(name.contains("Heisenberg")) {
+    		x = 1000;
+    	} else {
+    		i++;
+    	}
+    }
+    while(x != 1000);
+    
+    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/table/tbody/tr["+i+"]/td[5]/button[2]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Heisenberg'])[2]/following::button[1]")).click();
-    //Warning: assertTextNotPresent may require manual changes
-    assertFalse(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Heisenberg[\\s\\S]*$"));
+    pause(2000);
+    assertFalse(driver.findElement(By.cssSelector("BODY")).getText().matches("Heisenberg"));
   }
   
   @Before
