@@ -31,12 +31,11 @@ public class AritmeticaTest {
 		
 		// Verificar
 		assertThat(resultadoEsperado, is(resultadoEjecucion));
-		System.out.println("Suma realizada con éxito");
+		System.out.println("Suma realizada con éxito"+"\n");
 	}
 	
 	@Test
 	public void restaTest() {
-		System.out.println("Este es el restaTest");
 		// Inicializar
 		double resultadoEsperado = 3; // resultado esperado 5-2
 		double resultadoEjecucion = 0;
@@ -46,12 +45,11 @@ public class AritmeticaTest {
 		
 		// Verificar
 		assertThat(resultadoEsperado, is(resultadoEjecucion));
-		System.out.println("Resta realizada con éxito");
+		System.out.println("Resta realizada con éxito"+"\n");
 	}
 	
 	@Test
 	public void multiplicacionTest() {
-		System.out.println("Este es el multiplicacionTest");
 		// Inicializar
 		double resultadoEsperado = 10; // resultado esperado 5*2
 		double resultadoEjecucion = 0;
@@ -61,12 +59,11 @@ public class AritmeticaTest {
 		
 		// Verificar
 		assertThat(resultadoEsperado, is(resultadoEjecucion));
-		System.out.println("Multiplicación realizada con éxito");
+		System.out.println("Multiplicación realizada con éxito"+"\n");
 	}
 	
 	@Test
 	public void divisionTest() {
-		System.out.println("Este es el divisionTest");
 		// Inicializar
 		double resultadoEsperado = 5; // resultado esperado 10/2
 		double resultadoEjecucion = 0;
@@ -76,12 +73,11 @@ public class AritmeticaTest {
 		
 		// Verificar
 		assertThat(resultadoEsperado, is(resultadoEjecucion));
-		System.out.println("División realizada con éxito");
+		System.out.println("División realizada con éxito"+"\n");
 	}
 	
 	@Test
 	public void divisionEnteraTest() {
-		System.out.println("Este es el divisionEnteraTest");
 		// Inicializar
 		double resultadoEsperado = 0; // resultado esperado 10/0
 		double resultadoEjecucion = 0;
@@ -91,12 +87,11 @@ public class AritmeticaTest {
 		
 		// Verificar
 		assertThat(resultadoEsperado, is(resultadoEjecucion));
-		System.out.println("División entera realizada con éxito");
+		System.out.println("División entera realizada con éxito"+"\n");
 	}
 	
 	@Test (expected = ArithmeticException.class)
 	public void divisionEntre0Test() {
-		System.out.println("Este es el divisionEntre0Test");
 		// Inicializar
 		double resultadoEsperado = Double.POSITIVE_INFINITY; // resultado esperado 10/0
 		double resultadoEjecucion = 0;
@@ -106,7 +101,7 @@ public class AritmeticaTest {
 		
 		// Verificar
 		assertThat(resultadoEsperado, is(resultadoEjecucion));
-		System.out.println("División entre 0 realizada con éxito");
+		System.out.println("División entre 0 realizada con éxito"+"\n");
 	}
 
 }
