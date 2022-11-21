@@ -66,7 +66,7 @@ public class MernCrudTest {
     while(x != 1000);*/
 
     driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button[1]")).click();
-	driver.findElement(By.name("name")).click();
+	//driver.findElement(By.name("name")).click();
     driver.findElement(By.name("name")).clear();
     driver.findElement(By.name("name")).sendKeys("Heisenberg");
     driver.findElement(By.name("email")).click();
