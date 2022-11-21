@@ -34,9 +34,12 @@ public class GoogleTest {
 
   @Test
   public void buscarYucatani6Test() throws Exception {
-    driver.get("https://www.google.com/search?q=yucatan+i6&rlz=1C1VDKB_esMX1026MX1026&oq=yucatan+i6&aqs=chrome.0.0i131i433i512j0i512l3j0i22i30j0i10i22i30j0i22i30.3984j0j7&sourceid=chrome&ie=UTF-8");
-    driver.findElement(By.xpath("//div[@id='rso']/div/div/div/div/div/div/div/div/a/h3")).click();
-    driver.get("https://siies.yucatan.gob.mx/yucatani6/");
+    driver.get("https://www.google.com/");
+    driver.findElement(By.name("q")).click();
+    driver.findElement(By.name("q")).clear();
+    driver.findElement(By.name("q")).sendKeys("yucatan i6");
+    driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
+    driver.findElement(By.xpath("//*[text()='Yucatáni6 - SIIES']")).click();
     assertEquals("Yucatáni6", driver.getTitle());
   }
 
@@ -80,5 +83,13 @@ public class GoogleTest {
     } finally {
       acceptNextAlert = true;
     }
+  }
+  
+  private void pause(long mils) {
+		try {
+			Thread.sleep(mils);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
   }
 }

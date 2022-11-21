@@ -54,14 +54,14 @@ public class MernCrudTest {
 		pause(2000);
 		driver.findElement(By.xpath("//i")).click();
 		pause(2000);
-		assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Walter White[\\s\\S]*$"));
+		assertTrue(driver.findElement(By.xpath("//*[text()='Walter White']")).isDisplayed());
 	}
 	  
 	@Test
 	public void bbuscarUsuarioTest() throws Exception {
 		driver.get("https://mern-crud.herokuapp.com/");
 		pause(2000);
-		assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Walter White[\\s\\S]*$"));
+		assertTrue(driver.findElement(By.xpath("//*[text()='Walter White']")).isDisplayed());
 	}
 	 
 	@Test
@@ -79,7 +79,7 @@ public class MernCrudTest {
 		pause(2000);
 		driver.findElement(By.xpath("//i")).click();
 		pause(2000);
-		assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Heisenberg[\\s\\S]*$"));
+		assertTrue(driver.findElement(By.xpath("//*[text()='Heisenberg']")).isDisplayed());
 	}
 	
 	@Test
