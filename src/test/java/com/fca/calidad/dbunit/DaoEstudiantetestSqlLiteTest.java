@@ -199,8 +199,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 	
 	@Test
 	public void testBuscarEstudiante() {
-		Estudiante alumno;
-		alumno = daoSQLite.findEstudiante(0);
+		Estudiante alumno = daoSQLite.findEstudiante(0);
 		
 		try {
 			ITable actualTable = getConnection().createQueryTable(
