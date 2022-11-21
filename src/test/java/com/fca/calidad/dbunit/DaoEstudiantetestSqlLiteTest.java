@@ -119,7 +119,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 		}
 	}
 
-	@Test
+	/*@Test
 	public void testCrearCompararQuery() {
 		Estudiante alumno = new Estudiante ("nombrePruebaCrear","appellidoCrear","email" ,"carrera");
 		
@@ -195,7 +195,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			// TODO: handle exception
 			fail("Error in insert test: " + e.getMessage());
 		}
-	}
+	}*/
 	
 	@Test
 	public void testBuscarEstudiante() {
@@ -213,6 +213,49 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			assertThat(alumno.getEmail(), is(actualTable.getValue(0, "email")));			
 			assertThat(alumno.getCarrera(), is(actualTable.getValue(0, "carrera")));
 
+		} catch (Exception e) {
+			// TODO: handle exception
+			fail("Error in insert test: " + e.getMessage());
+		}
+	}
+	
+	@Test
+	public void testActualizarEstudiante() {
+		Estudiante alumno = daoSQLite.findEstudiante(0);
+		
+		alumno.setEmail("emailnuevo@hola");
+		daoSQLite.updateEmailEstudiante(alumno);
+		
+		try {
+			ITable actualTable = getConnection().createQueryTable(
+	                "estudiante",
+	                "SELECT * FROM estudiante where id = 0"); //tabla con los resultados del query
+			
+			// Comparamos al alumno con la tabla actual
+			assertThat(alumno.getNombre(), is(actualTable.getValue(0, "nombre")));
+			assertThat(alumno.getApellido(), is(actualTable.getValue(0, "apellido")));			
+			assertThat(alumno.getEmail(), is(actualTable.getValue(0, "email")));			
+			assertThat(alumno.getCarrera(), is(actualTable.getValue(0, "carrera")));
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			fail("Error in insert test: " + e.getMessage());
+		}
+	}
+	
+	@Test
+	public void testEliminarEstudiante() {
+		Estudiante alumno = daoSQLite.findEstudiante(0);
+		
+		daoSQLite.deleteEstudiante(alumno.getId());
+		
+		try {
+			ITable actualTable = getConnection().createQueryTable(
+	                "estudiante",
+	                "SELECT * FROM estudiante where id = 0"); //tabla con los resultados del query
+			
+			int expectedRows = 0;
+			assertThat(actualTable.getRowCount(), is(expectedRows));
 			
 		} catch (Exception e) {
 			// TODO: handle exception

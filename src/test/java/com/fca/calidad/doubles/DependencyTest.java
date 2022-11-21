@@ -36,7 +36,7 @@ public class DependencyTest {
 	}
 	
 	@Test
-	public void getClassNametest() {
+	public void getClassNameTest() {
 		setBehavior();
 		String resultadoEsperado = "Nombre de la clase";
 		String resultadoEjecucion = dependency.getClassName();

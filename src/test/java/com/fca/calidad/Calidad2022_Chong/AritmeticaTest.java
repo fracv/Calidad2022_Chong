@@ -79,20 +79,6 @@ public class AritmeticaTest {
 	}
 	
 	@Test
-	public void divisionEntre0Test() {
-		System.out.println("Este es el divisionEntre0Test");
-		// Inicializar
-		double resultadoEsperado = Double.POSITIVE_INFINITY; // resultado esperado 10/0
-		double resultadoEjecucion = 0;
-		
-		// Ejercicio del código
-		resultadoEjecucion = calculadora.division(10, 0);
-		
-		// Verificar
-		assertThat(resultadoEsperado, is(resultadoEjecucion));
-	}
-	
-	@Test
 	public void divisionEnteraTest() {
 		System.out.println("Este es el divisionEnteraTest");
 		// Inicializar
@@ -107,8 +93,8 @@ public class AritmeticaTest {
 	}
 	
 	@Test (expected = ArithmeticException.class)
-	public void divisionEnteraEntre0Test() {
-		System.out.println("Este es el divisionEntre0Test");
+	public void divisionEntre0Test() {
+		System.out.println("Este es el divisionEnteraEntre0Test");
 		// Inicializar
 		double resultadoEsperado = Double.POSITIVE_INFINITY; // resultado esperado 10/0
 		double resultadoEjecucion = 0;
@@ -117,7 +103,7 @@ public class AritmeticaTest {
 		resultadoEjecucion = calculadora.divisionEntera(10, 0);
 		
 		// Verificar
-		// assertThat(resultadoEsperado, is(resultadoEjecucion));
+		assertThat(resultadoEsperado, is(resultadoEjecucion));
 	}
 
 }
