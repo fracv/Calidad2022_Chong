@@ -25,6 +25,15 @@ public class MernCrudTest {
   private StringBuffer verificationErrors = new StringBuffer();
   JavascriptExecutor js;
 
+  @Before
+  public void setUp() throws Exception {
+	WebDriverManager.chromedriver().setup();
+    driver = new ChromeDriver();
+    baseUrl = "https://www.google.com/";
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+    js = (JavascriptExecutor) driver;
+  }
+  
   @Test
   public void aagregarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
@@ -44,30 +53,14 @@ public class MernCrudTest {
     pause(2000);
     driver.findElement(By.xpath("//i")).click();
     assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Walter White[\\s\\S]*$"));
-    //String msg = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Nice one!'])[1]/following::p[1]")).getAttribute("textContent");
-    //assertThat(msg, is("Successfully added!"));
   }
  
   @Test
   public void beditarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
-    /*String name = "";
-    int i = 1;
-    int x = 0;
-    
-    do {
-    	name = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/table/tbody/tr["+i+"]/td[1]")).getAttribute("textContent");
-    	if(name.contains("Walter White")) {
-    		x = 1000;
-    	} else {
-    		i++;
-    	}
-    }
-    while(x != 1000);*/
-
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button[1]")).click();
+    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button")).click();
 	driver.findElement(By.name("name")).click();
-    //driver.findElement(By.name("name")).clear();
+    driver.findElement(By.name("name")).clear();
     driver.findElement(By.name("name")).sendKeys("Heisenberg");
     driver.findElement(By.name("email")).click();
     driver.findElement(By.name("email")).clear();
@@ -76,42 +69,15 @@ public class MernCrudTest {
     pause(2000);
     driver.findElement(By.xpath("//i")).click();
     assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Heisenberg[\\s\\S]*$"));
-    //String msg = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Nice one!'])[1]/following::p[1]")).getAttribute("textContent");
-    //assertThat(msg, is("Successfully updated!"));
   }
   
   @Test
   public void celiminarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
-    /*String name = "";
-    int i = 1;
-    int x = 0;
-    
-    do {
-    	name = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/table/tbody/tr["+i+"]/td[1]")).getAttribute("textContent");
-    	if(name.contains("Heisenberg")) {
-    		x = 1000;
-    	} else {
-    		i++;
-    	}
-    }
-    while(x != 1000);*/
-    
     driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button[2]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Heisenberg'])[2]/following::button[1]")).click();
     pause(2000);
     assertFalse(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Heisenberg[\\s\\S]*$"));
-    //assertFalse(driver.findElement(By.cssSelector("BODY")).getText().matches("Heisenberg"));
-  }
-  
-  @Before
-  public void setUp() throws Exception {
-	WebDriverManager.chromedriver().setup();
-    //System.setProperty("webdriver.chrome.driver", "");
-    driver = new ChromeDriver();
-    baseUrl = "https://www.google.com/";
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-    js = (JavascriptExecutor) driver;
   }
 
   @After
