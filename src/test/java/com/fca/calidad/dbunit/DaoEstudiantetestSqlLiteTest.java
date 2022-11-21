@@ -38,7 +38,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 	protected IDataSet getDataSet() throws Exception {
 		// TODO Auto-generated method stub
 		return new FlatXmlDataSetBuilder().build
-				(new File("src/resources/initDB.xml"));
+				(new File("./src/resources/initDB.xml"));
 	}
 	
 	
@@ -49,7 +49,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 		Connection jdbcConnection;
 		
 		jdbcConnection = DriverManager.getConnection
-				("jdbc:sqlite:src\\resources\\Alumnos.db");
+				("jdbc:sqlite:.\\src\\resources\\Alumnos.db");
 		
 		connection = new DatabaseConnection(jdbcConnection);
 		
@@ -160,7 +160,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 	                "SELECT * FROM estudiante"); //tabla con los resultados del query
 			
 			IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(
-	                 new File("src/resources/insert_result.xml")); //archivo xml con los datos esperados después de insertar
+	                 new File("./src/resources/insert_result.xml")); //archivo xml con los datos esperados después de insertar
 			 ITable expectedTable = expectedDataSet.getTable("estudiante");
 	        Assertion.assertEquals(actualTable, expectedTable);		 //comparamos las tablas
 			
@@ -186,7 +186,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 	                "SELECT * FROM estudiante where id = 3"); //tabla con los resultados del query
 			
 			IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(
-	                 new File("src/resources/insert2.xml")); //archivo xml con los datos esperados después de insertar
+	                 new File("./src/resources/insert2.xml")); //archivo xml con los datos esperados después de insertar
 			 ITable expectedTable = expectedDataSet.getTable("estudiante");
 	        Assertion.assertEquals(actualTable, expectedTable);	//comparamos las tablas
 			
