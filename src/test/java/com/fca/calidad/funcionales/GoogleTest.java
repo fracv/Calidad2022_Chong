@@ -40,8 +40,8 @@ public class GoogleTest {
     driver.findElement(By.name("q")).sendKeys("yucatan i6");
     driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
     driver.findElement(By.xpath("//*[text()='Yucatáni6 - SIIES']")).click();
-    assertEquals("Yucatáni6", driver.getTitle());
 	System.out.println("Página de Yucatáni6 buscada con éxito");
+    assertEquals("Yucatáni6", driver.getTitle());
   }
 
   @After

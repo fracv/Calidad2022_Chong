@@ -55,8 +55,8 @@ public class FakeAlumnoDAOTest {
 	int sizeAfter = baseDatos.size();
 	
 	// Verify
-	assertThat(sizeAfter,is(sizeBefore+1));
 	System.out.println("Resultado addAlumno: " + res);
+	assertThat(sizeAfter,is(sizeBefore+1));
 	}
 	
 	@Test
@@ -86,8 +86,8 @@ public class FakeAlumnoDAOTest {
 
 		
 		// Verify
-		assertThat(sizeDeleted,is(sizeSaved-1));
 		System.out.println("Resultado deleteAlumno: " + res);
+		assertThat(sizeDeleted,is(sizeSaved-1));
 	}
 	
 	@Test
@@ -117,8 +117,8 @@ public class FakeAlumnoDAOTest {
 		// Verify
 		String valorEsperado = nuevoCorreo;
 		String valorEjecucion = baseDatos.get("1").getCorreo();
-		assertThat(valorEsperado,is(valorEjecucion));
 		System.out.println("Resultado updateEmail: " + res);
+		assertThat(valorEsperado,is(valorEjecucion));
 	}
 	
 	@Test
@@ -152,13 +152,11 @@ public class FakeAlumnoDAOTest {
 		int edadEjecucion = baseDatos.get("1").getEdad();
 		String emailEjecucion = baseDatos.get("1").getCorreo();
 		
+		System.out.println("Resultado searchAlumno: " + res);
 		assertThat(nomEsperado,is(nomEjecucion));
 		assertThat(idEsperado,is(idEjecucion));
 		assertThat(edadEsperado,is(edadEjecucion));
 		assertThat(emailEsperado,is(emailEjecucion));
-
-
-		System.out.println("Resultado searchAlumno: " + res);
 	}
 	
 }

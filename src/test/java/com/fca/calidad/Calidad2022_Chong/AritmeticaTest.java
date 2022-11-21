@@ -30,8 +30,8 @@ public class AritmeticaTest {
 		resultadoEjecucion = calculadora.suma(2, 2);
 		
 		// Verificar
-		assertThat(resultadoEsperado, is(resultadoEjecucion));
 		System.out.println("Suma realizada con éxito"+"\n");
+		assertThat(resultadoEsperado, is(resultadoEjecucion));
 	}
 	
 	@Test
@@ -44,8 +44,8 @@ public class AritmeticaTest {
 		resultadoEjecucion = calculadora.resta(5, 2);
 		
 		// Verificar
-		assertThat(resultadoEsperado, is(resultadoEjecucion));
 		System.out.println("Resta realizada con éxito"+"\n");
+		assertThat(resultadoEsperado, is(resultadoEjecucion));
 	}
 	
 	@Test
@@ -58,8 +58,8 @@ public class AritmeticaTest {
 		resultadoEjecucion = calculadora.multiplicacion(5, 2);
 		
 		// Verificar
-		assertThat(resultadoEsperado, is(resultadoEjecucion));
 		System.out.println("Multiplicación realizada con éxito"+"\n");
+		assertThat(resultadoEsperado, is(resultadoEjecucion));
 	}
 	
 	@Test
@@ -72,8 +72,8 @@ public class AritmeticaTest {
 		resultadoEjecucion = calculadora.division(10, 2);
 		
 		// Verificar
-		assertThat(resultadoEsperado, is(resultadoEjecucion));
 		System.out.println("División realizada con éxito"+"\n");
+		assertThat(resultadoEsperado, is(resultadoEjecucion));
 	}
 	
 	@Test
@@ -86,8 +86,8 @@ public class AritmeticaTest {
 		resultadoEjecucion = calculadora.divisionEntera(0, 10);
 		
 		// Verificar
-		assertThat(resultadoEsperado, is(resultadoEjecucion));
 		System.out.println("División entera realizada con éxito"+"\n");
+		assertThat(resultadoEsperado, is(resultadoEjecucion));
 	}
 	
 	@Test (expected = ArithmeticException.class)
@@ -100,8 +100,8 @@ public class AritmeticaTest {
 		resultadoEjecucion = calculadora.divisionEntera(10, 0);
 		
 		// Verificar
-		assertThat(resultadoEsperado, is(resultadoEjecucion));
 		System.out.println("División entre 0 realizada con éxito"+"\n");
+		assertThat(resultadoEsperado, is(resultadoEjecucion));
 	}
 
 }

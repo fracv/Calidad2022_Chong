@@ -110,6 +110,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			
 			numReal = actualTable.getRowCount(); //número de filas
 			//verificar
+			System.out.println("Estudiante con ID:"+id+" creado con éxito"+"\n");
 			assertThat(numEsperado,is(numReal));			
 			
 			
@@ -117,7 +118,6 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			// TODO: handle exception
 			fail("Error in insert test: " + e.getMessage());
 		}
-		System.out.println("Estudiante con ID:"+id+" creado con éxito"+"\n");
 	}
 
 	/*@Test
@@ -208,6 +208,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 	                "SELECT * FROM estudiante where id = 0"); //tabla con los resultados del query
 			
 			// Comparamos al alumno con la tabla actual
+			System.out.println("Estudiante con ID:0 buscado con éxito"+"\n");
 			assertThat(alumno.getNombre(), is(actualTable.getValue(0, "nombre")));
 			assertThat(alumno.getApellido(), is(actualTable.getValue(0, "apellido")));			
 			assertThat(alumno.getEmail(), is(actualTable.getValue(0, "email")));			
@@ -217,7 +218,6 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			// TODO: handle exception
 			fail("Error in insert test: " + e.getMessage());
 		}
-		System.out.println("Estudiante con ID:0 buscado con éxito"+"\n");
 	}
 	
 	@Test
@@ -233,6 +233,7 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 	                "SELECT * FROM estudiante where id = 0"); //tabla con los resultados del query
 			
 			// Comparamos al alumno con la tabla actual
+			System.out.println("Estudiante con ID:"+alumno.getId()+" actualizado con éxito"+"\n");
 			assertThat(alumno.getNombre(), is(actualTable.getValue(0, "nombre")));
 			assertThat(alumno.getApellido(), is(actualTable.getValue(0, "apellido")));			
 			assertThat(alumno.getEmail(), is(actualTable.getValue(0, "email")));			
@@ -242,7 +243,6 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 			// TODO: handle exception
 			fail("Error in insert test: " + e.getMessage());
 		}
-		System.out.println("Estudiante con ID:"+alumno.getId()+" actualizado con éxito"+"\n");
 	}
 	
 	@Test
@@ -257,12 +257,12 @@ public class DaoEstudiantetestSqlLiteTest extends TestCase{
 	                "SELECT * FROM estudiante where id = 0"); //tabla con los resultados del query
 			
 			int expectedRows = 0;
+			System.out.println("Estudiante con ID:"+alumno.getId()+" eliminado con éxito"+"\n");
 			assertThat(actualTable.getRowCount(), is(expectedRows));
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			fail("Error in insert test: " + e.getMessage());
 		}
-		System.out.println("Estudiante con ID:"+alumno.getId()+" eliminado con éxito"+"\n");
 	}
 }
