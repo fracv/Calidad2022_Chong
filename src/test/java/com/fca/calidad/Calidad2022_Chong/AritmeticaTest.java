@@ -94,7 +94,7 @@ public class AritmeticaTest {
 	
 	@Test (expected = ArithmeticException.class)
 	public void divisionEntre0Test() {
-		System.out.println("Este es el divisionEnteraEntre0Test");
+		System.out.println("Este es el divisionEntre0Test");
 		// Inicializar
 		double resultadoEsperado = Double.POSITIVE_INFINITY; // resultado esperado 10/0
 		double resultadoEjecucion = 0;
