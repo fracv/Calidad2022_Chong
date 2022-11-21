@@ -38,6 +38,7 @@ public class MernCrudTest {
   public void aagregarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
     driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
+    pause(2000);
     driver.findElement(By.name("name")).click();
     driver.findElement(By.name("name")).clear();
     driver.findElement(By.name("name")).sendKeys("Walter White");
@@ -52,6 +53,7 @@ public class MernCrudTest {
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
     pause(2000);
     driver.findElement(By.xpath("//i")).click();
+    pause(2000);
     assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Walter White[\\s\\S]*$"));
   }
  
@@ -59,7 +61,8 @@ public class MernCrudTest {
   public void beditarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
     driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button")).click();
-	driver.findElement(By.name("name")).click();
+	pause(2000);
+    driver.findElement(By.name("name")).click();
     driver.findElement(By.name("name")).clear();
     driver.findElement(By.name("name")).sendKeys("Heisenberg");
     driver.findElement(By.name("email")).click();
@@ -68,6 +71,7 @@ public class MernCrudTest {
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
     pause(2000);
     driver.findElement(By.xpath("//i")).click();
+    pause(2000);
     assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Heisenberg[\\s\\S]*$"));
   }
   
@@ -75,6 +79,7 @@ public class MernCrudTest {
   public void celiminarUsuarioTest() throws Exception {
     driver.get("https://mern-crud.herokuapp.com/");
     driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button[2]")).click();
+    pause(2000);
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Heisenberg'])[2]/following::button[1]")).click();
     pause(2000);
     assertFalse(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*Heisenberg[\\s\\S]*$"));
